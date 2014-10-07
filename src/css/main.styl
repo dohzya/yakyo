@@ -1,7 +1,121 @@
+@import 'nib'
+@import 'nib/reset'
+
+global-reset()
+
 body {
-  background: white
+  background: white;
 }
 
 .ascii {
-  margin: 0
+  margin: 0;
+}
+
+.header {
+  padding: 6px 0  // FIXME (why do I need this?);
+  .header-item {
+    background: lightgray;
+    padding: 5px;
+  }
+}
+
+#garden {
+  background: lightgreen;
+  // padding: 5px;
+  overflow: hidden;
+  .yakyo {
+    height: 32px
+    width: 32px
+    cursor: pointer
+  }
+}
+
+#arena {
+  background: #FAD186;
+  padding: 5px;
+}
+
+#arena {
+  width: 800px;
+
+  .btn {
+    user-select: none;
+    padding: 5px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 0;
+    margin: 5px;
+    cursor: pointer;
+    &:hover {
+      background: lightgray;
+    }
+    &:active {
+      background: gray;
+    }
+    .yakyo {
+      height: 16px
+      width: 16px
+      margin-right: 5px
+    }
+  }
+
+  .arena-order {
+    .arena-order-who {
+      display: inline-block;
+      width: 150px;
+      .arena-order-yakyos {
+        display: inline-block;
+      }
+    }
+    .arena-order-orders {
+      width: 250px;
+      display: inline-block;
+      .arena-order-order {
+        display: inline-block;
+      }
+    }
+    .arena-order-targets {
+      width: 250px;
+      display: inline-block;
+      .arena-order-target {
+        display: inline-block;
+      }
+    }
+    .arena-order-submit {
+      width: 150px;
+      display: inline-block;
+      .arena-order-submit-button {
+        display: inline-block;
+      }
+    }
+  }
+
+  .arena-actions {
+    display: block;
+    overflow: auto;
+    .arena-action {
+      display: block;
+      .arena-action-who {
+        width: 150px;
+        display: inline-block;
+      }
+      .arena-action-what {
+        width: 500px;
+        display: inline-block;
+      }
+      .arena-action-responses {
+        width: 150px;
+        display: inline-block;
+        .arena-action-response {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+}
+
+#logs {
+  background: lightblue;
+  padding: 5px;
 }

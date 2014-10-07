@@ -6,6 +6,7 @@ var path = require('path')
 var browserify = require('gulp-browserify')
 var concat = require('gulp-concat')
 var del = require('del')
+var nib = require('nib')
 var ecstatic = require('ecstatic')
 var gulp = require('gulp')
 var stylus = require('gulp-stylus')
@@ -17,7 +18,7 @@ gulp.task('clean', function(done) {
 
 gulp.task('css', ['clean'], function() {
   return gulp.src(['src/css/**/*.styl'])
-    .pipe(stylus())
+    .pipe(stylus({use: [nib()]}))
     .pipe(gulp.dest('dist/css'));
 });
 
