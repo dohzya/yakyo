@@ -11,6 +11,7 @@ var ecstatic = require('ecstatic')
 var gulp = require('gulp')
 var stylus = require('gulp-stylus')
 var watch = require('gulp-watch')
+var to5Browserify = require("6to5-browserify")
 
 gulp.task('clean', function(done) {
   del(['build'], done);
@@ -24,7 +25,7 @@ gulp.task('css', ['clean'], function() {
 
 gulp.task('js', ['clean'], function() {
   return gulp.src(path.join(__dirname, "src/js/main.js"))
-    .pipe(browserify({transform: ['reactify', 'envify']}))
+    .pipe(browserify({transform: ['reactify', 'envify', '6to5-browserify']}))
     .pipe(concat("main.js"))
     .pipe(gulp.dest(path.join(__dirname, "dist/js")))
 })

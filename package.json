@@ -1,6 +1,8 @@
 {
   "name": "baked-hosting-config",
   "devDependencies": {
+    "6to5": "^1.4.0",
+    "6to5-browserify": "0.0.8",
     "del": "^0.1.3",
     "ecstatic": "^0.5.5",
     "envify": "^3.0.0",

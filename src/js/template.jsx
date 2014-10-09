@@ -1,14 +1,14 @@
 /** @jsx React.DOM */
 
-var _ = require('lodash')
-var React = require('react')
-var Immutable = require('immutable');
+import _ from "lodash"
+import React from "react"
+import Immutable from "immutable"
 
 ;(function (undefined) {
   "use strict";
 
   var Header = React.createClass({
-    render: function() {
+    render() {
       return (
         <div id="header" className="header">
           <span className="header-item">Garden</span>
@@ -21,19 +21,19 @@ var Immutable = require('immutable');
   })
 
   var YakyoImg = React.createClass({
-    render: function() {
+    render() {
       return <img className="yakyo" src="/assets/img/yakyo.png" />
     }
   })
 
   var GardenYakyo = React.createClass({
-    render: function() {
+    render() {
       return <YakyoImg />
     }
   })
 
   var Garden = React.createClass({
-    render: function() {
+    render() {
       return (
         <div id="garden" style={{height: '100px'}}>
           <GardenYakyo />
@@ -45,7 +45,7 @@ var Immutable = require('immutable');
   })
 
   var Arena = React.createClass({
-    render: function() {
+    render() {
 
       var ctx = {
         order: {
@@ -89,27 +89,27 @@ var Immutable = require('immutable');
         <div id="arena">
           <div className="arena-order" style={{height: '100px'}}>
             <div className="arena-order-who">
-              {ctx.order.group.map(function (yakyo) {
-                return <div className="btn arena-order-yakyo"><YakyoImg />{yakyo}</div>
-              }).toJS()}
+              {ctx.order.group.map(yakyo =>
+                <div className="btn arena-order-yakyo"><YakyoImg />{yakyo}</div>
+              ).toJS()}
             </div>
             <div className="arena-order-orders">
-              {ctx.order.orders.map(function (order) {
-                return <div className="btn arena-order-order">{order}!</div>
-              }).toJS()}
+              {ctx.order.orders.map(order =>
+                <div className="btn arena-order-order">{order}!</div>
+              ).toJS()}
             </div>
             <div className="arena-order-targets">
-              {ctx.order.enemies.map(function (enemy) {
-                return <div className="btn arena-order-target">{enemy}</div>
-              }).toJS()}
-              {ctx.order.group.map(function (yakyo) {
-                return <div className="btn arena-order-target"><YakyoImg />{yakyo}</div>
-              }).toJS()}
+              {ctx.order.enemies.map(enemy =>
+                <div className="btn arena-order-target">{enemy}</div>
+              ).toJS()}
+              {ctx.order.group.map(yakyo =>
+                <div className="btn arena-order-target"><YakyoImg />{yakyo}</div>
+              ).toJS()}
             </div>
             <div className="arena-order-submit">
-              {ctx.order.submitBtns.map(function (submitBtn) {
-                return <div className="btn arena-order-submit-button">{submitBtn}!</div>
-              }).toJS()}
+              {ctx.order.submitBtns.map(submitBtn =>
+                <div className="btn arena-order-submit-button">{submitBtn}!</div>
+              ).toJS()}
             </div>
           </div>
           <hr />
@@ -147,7 +147,7 @@ var Immutable = require('immutable');
   })
 
   var Log = React.createClass({
-    render: function() {
+    render() {
       return <div className="line">{this.props.log.msg}</div>
     }
   })
@@ -161,19 +161,17 @@ var Immutable = require('immutable');
         {key: 4, date: 'now', msg: 'Toe attacked the bad guy with Tunnel'},
       ])
     },
-    render: function() {
+    render() {
       return (
         <div id="logs">
-          {this.logs().map(function (log) {
-            return <Log key={log.key} log={log} />
-          }).toJS()}
+          {this.logs().map(log => <Log key={log.key} log={log} />).toJS()}
         </div>
       )
     }
   })
 
   var Game = React.createClass({
-    render: function() {
+    render() {
       return (
         <div id="game">
           <Header/>
@@ -186,7 +184,7 @@ var Immutable = require('immutable');
   })
 
   module.exports = {
-    init: function(el) {
+    init(el) {
       React.renderComponent(<Game/>, el)
     }
   }

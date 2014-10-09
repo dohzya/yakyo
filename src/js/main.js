@@ -1,13 +1,13 @@
 /* jshint asi:true, newcap:false */
 
-var _ = require('lodash')
-var Q = require('q')
-var React = require('react')
+import _ from "lodash"
+import Q from "q"
+import React from "react"
 
 // makes React Developer Tools work
 window.React = React
 
-var template = require('./template.jsx')
+import "./template.jsx"
 
 ;(function (undefined) {
   "use strict";
