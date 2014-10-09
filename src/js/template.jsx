@@ -46,30 +46,70 @@ var Immutable = require('immutable');
 
   var Arena = React.createClass({
     render: function() {
+
+      var ctx = {
+        order: {
+          group: Immutable.Sequence(["Tic", "Tac", "Toe"]),
+          enemies: Immutable.Sequence(["The bad guy"]),
+          orders: Immutable.Sequence([
+            "Attack",
+            "Defend",
+            "Protect",
+            "Help",
+            "Combine",
+          ]),
+          submitBtns: Immutable.Sequence(["Go", "Cancel"]),
+        },
+        actions: Immutable.Sequence([
+          {
+            who: "The bad guy",
+            what: "prepares an attack",
+          }, {
+            who: "Tic",
+            what: "prepares a fireball",
+            responses: Immutable.Sequence([
+              "Stop!",
+              "Great!",
+            ]),
+          }, {
+            who: "Tac",
+            what: "does not know what to do",
+          }, {
+            who: "Toe",
+            what: "protect himself",
+            responses: Immutable.Sequence([
+              "Stop!",
+              "Great!",
+            ]),
+          },
+        ]),
+      }
+
       return (
         <div id="arena">
           <div className="arena-order" style={{height: '100px'}}>
             <div className="arena-order-who">
-              <div className="btn arena-order-yakyo"><YakyoImg />Tic</div>
-              <div className="btn arena-order-yakyo"><YakyoImg />Tac</div>
-              <div className="btn arena-order-yakyo"><YakyoImg />Toe</div>
+              {ctx.order.group.map(function (yakyo) {
+                return <div className="btn arena-order-yakyo"><YakyoImg />{yakyo}</div>
+              }).toJS()}
             </div>
             <div className="arena-order-orders">
-              <div className="btn arena-order-order">Attack!</div>
-              <div className="btn arena-order-order">Defend!</div>
-              <div className="btn arena-order-order">Protect!</div>
-              <div className="btn arena-order-order">Help!</div>
-              <div className="btn arena-order-order">Combine!</div>
+              {ctx.order.orders.map(function (order) {
+                return <div className="btn arena-order-order">{order}!</div>
+              }).toJS()}
             </div>
             <div className="arena-order-targets">
-              <div className="btn arena-order-target">The bad guy</div>
-              <div className="btn arena-order-target"><YakyoImg />Tic</div>
-              <div className="btn arena-order-target"><YakyoImg />Tac</div>
-              <div className="btn arena-order-target"><YakyoImg />Toe</div>
+              {ctx.order.enemies.map(function (enemy) {
+                return <div className="btn arena-order-target">{enemy}</div>
+              }).toJS()}
+              {ctx.order.group.map(function (yakyo) {
+                return <div className="btn arena-order-target"><YakyoImg />{yakyo}</div>
+              }).toJS()}
             </div>
             <div className="arena-order-submit">
-              <div className="btn arena-order-submit-button">Go!</div>
-              <div className="btn arena-order-submit-button">Cancel</div>
+              {ctx.order.submitBtns.map(function (submitBtn) {
+                return <div className="btn arena-order-submit-button">{submitBtn}!</div>
+              }).toJS()}
             </div>
           </div>
           <hr />
