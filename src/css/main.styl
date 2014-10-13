@@ -42,15 +42,18 @@ body {
     user-select: none;
     padding: 5px;
     border-radius: 5px;
-    background: white;
+    background: #CCCCCC;
     box-shadow: 0 0 0;
     margin: 5px;
     cursor: pointer;
+    &.selected {
+      background: white;
+    }
     &:hover {
-      background: lightgray;
+      background: #AAAAAA;
     }
     &:active {
-      background: gray;
+      background: #888888;
     }
     .yakyo {
       height: 16px
