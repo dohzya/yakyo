@@ -14,13 +14,13 @@ var watch = require('gulp-watch')
 var to5Browserify = require("6to5-browserify")
 
 gulp.task('clean', function(done) {
-  del(['build'], done);
+  del(['build'], done)
 });
 
 gulp.task('css', ['clean'], function() {
   return gulp.src(['src/css/**/*.styl'])
     .pipe(stylus({use: [nib()]}))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('dist/css'))
 });
 
 gulp.task('js', ['clean'], function() {
@@ -44,8 +44,8 @@ gulp.task('serve', function () {
     showDir: false,
     autoIndex: true,
     defaultExt: 'html'
-  })).listen(port);
-  console.info("Listen connection on http://127.0.0.1:" + port);
-});
+  })).listen(port)
+  console.info("Listen connection on http://127.0.0.1:" + port)
+})
 
 gulp.task('default', ['watch', 'serve'])
