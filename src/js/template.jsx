@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+/* jshint asi:true, esnext:true */
 
 import _ from "lodash"
 import React from "react/addons"
